@@ -4,17 +4,17 @@ using namespace std;
 
 int main()
 {
-    string grey;
+    string gray;
     string binary;
  
     cout << "Input Grey Number: " ;
-    cin >> grey;
-    int len = grey.length();
-    binary += grey[0];
+    cin >> gray;
+    int len = gray.length();
+    binary += gray[0];
 
     for (int i = 1; i < len; i++)
     {
-        if (binary[i - 1] != grey[i])
+        if (binary[i - 1] != gray[i])
         {
             binary += "1";
         }
