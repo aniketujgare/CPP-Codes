@@ -34,7 +34,10 @@ int main()
         str.push_back(temp);
         counter -= 4;
     }
+<<<<<<< HEAD
     cout<<"Excess3 Converted Code is"<<endl;
+=======
+>>>>>>> ecabaf4b03933095240ef499ce1ff25fd9c4ff9d
     for (int i = str.size() - 1; i >= 0; i--)
         excess3(str[i]);
 
@@ -64,6 +67,7 @@ void excess3(string a)
 
     reverse(res.begin(), res.end());
     cout << res;
+<<<<<<< HEAD
 }
 
 
@@ -72,3 +76,6 @@ void excess3(string a)
 // 011001011000
 // Excess3 Converted Code is
 // 100110001011
+=======
+}
+>>>>>>> ecabaf4b03933095240ef499ce1ff25fd9c4ff9d
