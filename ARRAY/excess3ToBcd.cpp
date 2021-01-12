@@ -38,10 +38,7 @@ int main()
         str.push_back(temp);
         counter -= 4;
     }
-<<<<<<< HEAD
     cout<<"BCD Converted Code is"<<endl;
-=======
->>>>>>> ecabaf4b03933095240ef499ce1ff25fd9c4ff9d
     for (int i = str.size() - 1; i >= 0; i--)
         bcd(str[i]);
 
@@ -103,7 +100,6 @@ int binaryToDecimal(int n)
     }
  
     return dec_value;
-<<<<<<< HEAD
 }
 
 // OUTPUT:
@@ -112,6 +108,3 @@ int binaryToDecimal(int n)
 // 100110001011
 // BCD Converted Code is
 // 011001011000
-=======
-}
->>>>>>> ecabaf4b03933095240ef499ce1ff25fd9c4ff9d

@@ -8,9 +8,9 @@ void excess3(string);
 int main()
 {
     string bcd;
+    vector<string> str;
     cout << "Input BCD Code" << endl;
     cin >> bcd;
-    vector<string> str;
     int len = bcd.length();
     int counter = len;
     //if bcd entered is
@@ -29,15 +29,11 @@ int main()
             bcd.insert(0, 4 - counter, '0');
             counter = 4;
         }
-
         temp = bcd.substr(counter - 4, 4);
         str.push_back(temp);
         counter -= 4;
     }
-<<<<<<< HEAD
     cout<<"Excess3 Converted Code is"<<endl;
-=======
->>>>>>> ecabaf4b03933095240ef499ce1ff25fd9c4ff9d
     for (int i = str.size() - 1; i >= 0; i--)
         excess3(str[i]);
 
@@ -67,7 +63,6 @@ void excess3(string a)
 
     reverse(res.begin(), res.end());
     cout << res;
-<<<<<<< HEAD
 }
 
 
@@ -76,6 +71,3 @@ void excess3(string a)
 // 011001011000
 // Excess3 Converted Code is
 // 100110001011
-=======
-}
->>>>>>> ecabaf4b03933095240ef499ce1ff25fd9c4ff9d

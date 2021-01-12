@@ -60,16 +60,16 @@ int main()
 }
 
 
-OUTPUT :-
-Enter name of the patient: Bablu Seth
-Enter date of admission: 3 11 2020
-Enter date of discharge: 20 01 2021
-Enter age: 10
-Patient name: Bablu Seth      Date of admission: 3/11/2020    Date of discharge: 20/1/2021
-age: 10
-------------------------------------------------------------------------------------------------
-Enter name of the patient: Donald Trump
-Enter date of admission: 3 11 2020
-Enter date of discharge: 20 01 2021
-Enter age: 47
-age greater than 12
+// OUTPUT :-
+// Enter name of the patient: Bablu Seth
+// Enter date of admission: 3 11 2020
+// Enter date of discharge: 20 01 2021
+// Enter age: 10
+// Patient name: Bablu Seth      Date of admission: 3/11/2020    Date of discharge: 20/1/2021
+// age: 10
+// ------------------------------------------------------------------------------------------------
+// Enter name of the patient: Donald Trump
+// Enter date of admission: 3 11 2020
+// Enter date of discharge: 20 01 2021
+// Enter age: 47
+// age greater than 12
