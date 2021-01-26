@@ -1,102 +1,135 @@
-
-// A simple C/C++ program to introduce 
-// a linked list 
-
-#include<bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-// Linked List Node
-struct Node 
-{ 
-    int data; // Data
-    struct Node *next;  // Pointer
-}; 
+class node
+{
+public:
+    int data;
+    node *next;
 
-// Program to create a simple linked 
-// list with 3 nodes 
-int main() 
-{ 
-    struct Node* head = NULL; 
-    struct Node* second = NULL; 
-    struct Node* third = NULL; 
-        
-    // allocate 3 nodes in the heap 
-    head = new Node; 
-    second = new Node; 
-    third = new Node; 
-    
-    /* Three blocks have been allocated dynamically. 
-        We have pointers to these three blocks as first, 
-        second and third     
-        head         second         third 
-            |             |             | 
-            |             |             | 
-        +---+-----+     +----+----+     +----+----+ 
-        | # | # |     | # | # |     | # | # | 
-        +---+-----+     +----+----+     +----+----+ 
-        
-    # represents any random value. 
-      
-      Data is random because we haven’t assigned 
-      anything yet */
-        
-    head->data = 1; //assign data in first node 
-    
-    // Link first node with the second node
-    head->next = second;  
-        
-    /*  data has been assigned to data part of first 
-        block (block pointed by head). And next 
-        pointer of first block points to second. 
-        So they both are linked. 
-    
-        head         second         third 
-            |             |             | 
-            |             |             | 
-        +---+---+     +----+----+     +-----+----+ 
-        | 1 | o----->| # | # |     | # | # | 
-        +---+---+     +----+----+     +-----+----+     
-    */
-        
-    // assign data to second node 
-    second->data = 2; 
-    
-    // Link second node with the third node 
-    second->next = third; 
-        
-    /*  data has been assigned to data part of second 
-        block (block pointed by second). And next 
-        pointer of the second block points to third 
-        block. So all three blocks are linked. 
-        
-        head         second         third 
-            |             |             | 
-            |             |             | 
-        +---+---+     +---+---+     +----+----+ 
-        | 1 | o----->| 2 | o-----> | # | # | 
-        +---+---+     +---+---+     +----+----+     */    
-        
-    third->data = 3; //assign data to third node 
-    third->next = NULL; 
-        
-    /*  data has been assigned to data part of third 
-        block (block pointed by third). And next pointer 
-        of the third block is made NULL to indicate 
-        that the linked list is terminated here. 
-    
-        We have the linked list ready. 
-    
-            head     
-                | 
-                | 
-            +---+---+     +---+---+     +----+------+ 
-            | 1 | o----->| 2 | o-----> | 3 | NULL | 
-            +---+---+     +---+---+     +----+------+     
-        
-        
-        Note that only head is sufficient to represent 
-        the whole list. We can traverse the complete 
-        list by following next pointers. */    
-    
-    return 0; 
-} 
+    node(int val)
+    {
+        data = val;
+        next = NULL;
+    }
+};
+void insertAtHead(node *&head, int val)
+{
+    node *n = new node(val);
+    n->next = head;
+    head = n;
+}
+
+void insertAtTail(node *&head, int val)
+{
+
+    node *n = new node(val);
+    if (head == NULL)
+    {
+        head = n;
+        return;
+    }
+
+    node *temp = head;
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+    temp->next = n;
+}
+void display(node *head)
+{
+    node *temp = head;
+    while (temp != NULL)
+    {
+        cout << temp->data << "->";
+        temp = temp->next;
+    }
+    cout << "NULL" << endl;
+}
+bool search(node *head, int key)
+{
+    node *temp = head;
+    while (temp != NULL)
+    {
+        if (temp->data == key)
+        {
+            return true;
+        }
+        temp = temp->next;
+    }
+
+    return false;
+}
+void deleteAtHead(node *&head)
+{
+    node *todelete = head;
+    head = head->next;
+
+    delete todelete;
+}
+void deletion(node *&head, int val)
+{
+    if (head == NULL) // Linked list is empty
+    {
+        return;
+    }
+    if (head->next == NULL) //Linked list contains single element
+    {
+        deleteAtHead(head);
+        return;
+    }
+
+    node *temp = head;
+    while (temp->next->data != val)
+    {
+        temp = temp->next;
+    }
+    node *todelete = temp->next;
+    temp->next = temp->next->next;
+    delete todelete;
+}
+
+node *reverse(node *&head)
+{
+    node *prevptr = NULL;
+    node *currptr = head;
+    node *nextptr;
+
+    while (currptr != NULL)
+    {
+        nextptr = currptr->next;
+        currptr->next = prevptr;
+
+        prevptr = currptr;
+        currptr = nextptr;
+    }
+    return prevptr; //new head
+}
+node *reverseRecurrsive(node *&head)
+{
+    if (head == NULL || head->next == NULL)
+        return head;
+    node *newhead = reverseRecurrsive(head->next);
+    head->next->next = head;
+    head->next = NULL;
+    return newhead;
+}
+int main()
+{
+    node *head = NULL;
+    insertAtTail(head, 1);
+    insertAtTail(head, 2);
+    insertAtTail(head, 3);
+    // display(head);
+    insertAtTail(head, 4);
+    // display(head);
+    // cout<<search(head,3)<<endl;
+    // deletion(head,3);
+    // deleteAtHead(head);
+    display(head);
+    node *newhead = reverseRecurrsive(head);
+    display(newhead);
+
+    return 0;
+}
