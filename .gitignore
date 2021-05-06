@@ -6,6 +6,7 @@
 *.exe
 *.o
 *.so
+*.bin
 
 # Packages #
 ############
@@ -19,6 +20,7 @@
 *.rar
 *.tar
 *.zip
+*.cph
 
 # Logs and databases #
 ######################

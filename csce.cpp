@@ -1,22 +1,34 @@
 #include <bits/stdc++.h>
+ 
+#define ll long long
+#define sz(x) ((int) (x).size())
+#define all(x) (x).begin(), (x).end()
+#define vi vector<int>
+#define pii pair<int, int>
+#define rep(i, a, b) for(int i = (a); i < (b); i++)
 using namespace std;
-
-int main()
-{
-    long long n;
-    cin>>n;
-
-    while (true)
-    {
-        cout<<n<<" ";
-        if(n==1)
-            break;
-        if(n%2==0)
-            n/=2;
-        else
-            n = n*3+1;
+template<typename T>
+using minpq = priority_queue<T, vector<T>, greater<T>>;
+ 
+void solve() {
+    int n;
+    ll r;
+    cin >> n >> r;
+    vector<ll> a(n + 1);
+    rep(i, 1, n + 1) cin >> a[i];
+    ll x = 0, ans = 0;
+    rep(i, 1, n + 1) {
+        ll b;
+        cin >> b;
+        x = max(0LL, x - r * (a[i] - a[i - 1]));
+        x += b;
+        ans = max(ans, x);
     }
-    cout<<"\n";
-    return 0;
-    
+    cout << ans << '\n';
+}
+ 
+int main() {
+    int te;
+    cin >> te;
+    while(te--) solve();
 }
